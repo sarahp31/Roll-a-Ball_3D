@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -34,5 +35,14 @@ public class MenuController : MonoBehaviour
         endPanel.SetActive(true);
         // Exibindo texto de winner
         endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Win!";
+    }
+
+    public void StartGame(){
+        // Scena do jogo
+        SceneManager.LoadScene(1);
+    }
+
+    public void RestartGame(){
+        SceneManager.LoadScene(1);
     }
 }

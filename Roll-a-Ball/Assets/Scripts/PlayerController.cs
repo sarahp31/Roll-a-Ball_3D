@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
         SetCountText();
     }
 
+    private void Update(){
+        // verificando se jogador caiu do cenario
+        if(transform.position.y < -10){
+            Respawn();
+        }
+    }
+
     void OnMove(InputValue movementValue){
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
