@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public Transform respawnPoint;
     public MenuController menuController;
+    public AudioClip soundColetar;
+    private AudioSource audioSource;
 
     private Rigidbody rb;
     private int count;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         count = 0;
 
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Pickup")){
             other.gameObject.SetActive(false);
             count = count + 1;
+            audioSource.PlayOneShot(soundColetar);
 
             SetCountText();
         }
